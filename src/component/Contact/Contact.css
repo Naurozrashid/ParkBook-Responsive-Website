@@ -1,0 +1,44 @@
+.user-card {
+  background: #fff;
+  border: 1px solid #c0c8eb;
+  border-radius: 8px;
+  box-shadow: 0 3px 0 rgb(192 200 235 / 60%);
+  padding: 0;
+  display: inline-block;
+  width: 100%;
+}
+.user-card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  line-height: 1.9375rem;
+  letter-spacing: 0.01em;
+}
+.user-card-text {
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 25px;
+  letter-spacing: 0.01em;
+}
+.signin {
+  color: white;
+  background: #ff722c;
+  border-radius: 10px;
+}
+.font-color {
+  color: #5c5574;
+  border-radius: 1px solid #992cff;
+}
+.font-color:hover {
+  color: white;
+  background: #00b2b6;
+  border-radius: 4px;
+}
+
+.btn-brdr5 {
+  color: white;
+  background: #a02cff;
+}
+.brdr5 {
+  border: 1px solid #872cff;
+  border-radius: 4px;
+}

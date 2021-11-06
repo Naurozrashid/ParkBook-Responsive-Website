@@ -4,6 +4,7 @@ import logo from "../../images/login/logn14.png";
 import { Link,useHistory,useLocation } from 'react-router-dom';
 import useAuth from '../../Hooks/useAuth';
 import './Login.css'
+import swal from 'sweetalert';
 
 const Login = () => {
   const { signInUsingGoogle,user,handleEmailChange,handlePasswordChange,handleLogin,error} = useAuth();
@@ -16,7 +17,7 @@ const Login = () => {
   const handleGoogleLogin = () => {
     signInUsingGoogle()
         .then(result => {
-         
+          swal("Login", "Successful", "success");
           history.push(redirect_uri)
         })
 }
@@ -69,7 +70,7 @@ const Login = () => {
               Login
             </Button>
             <p className="text-center pt-3 m-0">
-              dont have an account? <Link to="/register">register</Link>
+              dont have an account? <Link to="/register">Register Now</Link>
             </p>
           </Form>
         </div>
@@ -77,9 +78,9 @@ const Login = () => {
         <div className="col-lg-5 image d-flex justify-content-center align-items-center">
           <div className="text-center text-dark p-4">
             <img src={logo} className="img-fluid" alt="" />
-            <h6 className="mt-5">Make Your Medical Experience a Lot Brighter</h6>
+            <h6 className="mt-5">Make Your Parking Booking Experience a Lot Brighter</h6>
             <Form.Text className="text-muted">
-              with best facilitise best equipments, you are in safe hands
+            with best facilitise best equipments and best parking, you are in safe hands.
             </Form.Text>
           </div>
         </div>

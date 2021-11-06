@@ -1,0 +1,70 @@
+.intro-color {
+  color: #171835;
+  font-size: 3rem;
+  line-height: 54px;
+  font-weight: 900;
+}
+
+.intro-color-2 {
+  color: #777;
+}
+
+/* input section */
+.sub-header {
+  background: linear-gradient(
+      0deg,
+      rgba(198, 208, 235, 0.4),
+      rgba(198, 208, 235, 0.4)
+    ),
+    #fff;
+}
+.padding {
+  width: 25em;
+}
+.padding-date {
+  width: 15em;
+}
+.border-info-home {
+  border: 2px solid #ff722c;
+  border-radius: 5px;
+}
+
+/* section style */
+.light {
+  font-weight: 500;
+  font-size: 1.73rem;
+  color: #171835;
+  font-weight: 900;
+  line-height: 1.1;
+}
+.number {
+  width: 60px;
+  height: 80px;
+  display: inline-block;
+  line-height: 100%;
+  padding: 16px;
+  margin-right: 4.6px;
+  font-size: 50px;
+  font-weight: 600;
+  color: #fff;
+  border-radius: 6px;
+  background: #ff722c;
+  background: linear-gradient(180deg, #ff722c 50%, #f45400 0);
+}
+/* download app bg */
+.download-bg {
+  padding: 2.375rem 3.9375rem 2.25rem;
+  background-color: #ff722c;
+  margin: 6.25rem 4.1875rem 8.375rem 4rem;
+  border-radius: 32px;
+}
+.img-home-download-app {
+  width: 12rem;
+  height: 4.2rem;
+}
+.font-download {
+  font-size: 3rem;
+  line-height: 54px;
+  font-weight: 900;
+  color: white;
+}

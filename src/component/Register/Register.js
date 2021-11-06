@@ -4,9 +4,10 @@ import logo from "../../images/login/logn14.png";
 import { Link,useHistory } from 'react-router-dom';
 import './Register.css'
 import useAuth from '../../Hooks/useAuth';
+import swal from 'sweetalert';
 
 const Register = () => {
-    const { signInUsingGoogle,handleNameChange,handleEmailChange,handlePasswordChange,handleRegistration,error} = useAuth();
+    const { signInUsingGoogle,handleNameChange,handleEmailChange,handlePasswordChange,handleRegistration,error,logOut} = useAuth();
   const history = useHistory();
 
 
@@ -14,7 +15,10 @@ const Register = () => {
   const handleGoogleLogin = () => {
     signInUsingGoogle()
         .then(result => {
+            logOut();
+            swal("Successfully", "Registered", "success");
           history.push('./login')
+          
         })
 }
     return (
@@ -75,7 +79,7 @@ const Register = () => {
                 />
               </Form.Group>
               
-  
+               <p>{error}</p>
               <Button
                 // onClick={logOut}
                 className="btn btn-warning px-5 py-2"
@@ -85,7 +89,7 @@ const Register = () => {
               </Button>
             </Form>
             <p className="text-center pt-3 m-0">
-              already have an account? <Link to="/login">login</Link>
+              already have an account? <Link to="/login">Go To Login</Link>
             </p>
           </div>
         </div>

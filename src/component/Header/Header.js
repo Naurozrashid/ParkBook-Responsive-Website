@@ -20,7 +20,10 @@ const Header = () => {
               alt="React Bootstrap logo"
             />
           </NavLink>
-        </Navbar.Brand>
+        </Navbar.Brand>{' '}
+          Parkzone
+            
+       
         <Navbar.Toggle aria-controls="navbarScroll" />
         <Navbar.Collapse id="navbarScroll">
           <Nav
@@ -31,15 +34,21 @@ const Header = () => {
             <NavLink to="/home" className="nav-link">
               Home
             </NavLink>
+            <NavLink to="/home" className="nav-link">
+              My Order
+            </NavLink>
 
             
 
-            <NavLink to="/login" className="nav-link">
-              login
+            <NavLink to="/Help" className="nav-link">
+              Help
             </NavLink>
 
+            <NavLink to="/contact" className="nav-link">
+              Contact
+            </NavLink>
             <NavLink to="/about" className="nav-link">
-              About
+              About us
             </NavLink>
           </Nav>
           <Nav>
@@ -63,11 +72,11 @@ const Header = () => {
               ) : (
                 // <button onClick={logOut}>Logout</button>
                 <Nav>
-                  <NavLink to="/login" className="nav-link">
+                  <NavLink to="/login" className="nav-link btn brdr font-color5">
                     Login
                   </NavLink>
 
-                  <NavLink to="/register" className="nav-link">
+                  <NavLink to="/register" className="nav-link btn brdr font-color5 ms-4">
                     Register
                   </NavLink>
                 </Nav>

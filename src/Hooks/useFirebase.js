@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useHistory ,useLocation } from 'react-router-dom';
 import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut,createUserWithEmailAndPassword,updateProfile,sendEmailVerification,signInWithEmailAndPassword } from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebase.init';
+import swal from 'sweetalert';
 
 initializeAuthentication();
 
@@ -49,11 +50,13 @@ const useFirebase = () => {
           setError('');
           verifyEmail();
           setUserName();
+          swal("Successfully", "Registered", "success");
           logOut();
           history.push('/login');
         })
         .catch(error => {
           setError(error.message);
+          swal("Registration Unsuccessful", `${error}`, "warning");
         })
       }
       const setUserName = () => {
@@ -74,17 +77,19 @@ const useFirebase = () => {
         .then(result => {
           const user = result.user;
          if(!user.emailVerified){
-             setError('email is not verified');
+             setError('Email is not verified');
              logOut();
+             swal("Login Unsuccessful", `${error}`, "warning");
              return
          }
          
-         
+         swal("Login", "Successful", "success");
           history.push(redirect_uri);
           setError('');
         })
         .catch(error => {
           setError(error.message);
+          swal("Login Unsuccessful", `${error}`, "warning");
         })
       }
 

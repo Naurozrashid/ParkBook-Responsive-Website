@@ -4,9 +4,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Login from './component/Login/Login';
 import Home from './component/Home/Home';
 import Header from './component/Header/Header';
-import Footer from './component/Footer/Footer';
+
 import Register from './component/Register/Register';
 import AuthProvider from './Context/AuthProvider';
+import Help from './component/Help/Help';
+import Contact from './component/Contact/Contact';
+import Footer from './component/Footer/Footer';
+
+
 
 function App() {
   return (
@@ -27,8 +32,14 @@ function App() {
            <Route path="/register">
              <Register></Register>
           </Route> 
+           <Route path="/help">
+           <Help></Help>
+          </Route> 
+           <Route path="/contact">
+           <Contact></Contact>
+          </Route> 
         </Switch>
-        <Footer></Footer>
+       <Footer></Footer>
         </AuthProvider>
       </Router>
      
