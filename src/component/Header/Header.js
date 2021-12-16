@@ -1,7 +1,7 @@
 import React from 'react';
 import "./Header.css";
 import logo from "../../images/header.png";
-import { Container, Image, Nav, Navbar } from "react-bootstrap";
+import { Container, Image, Nav, Navbar, NavDropdown } from "react-bootstrap";
 import { NavLink } from "react-router-dom";
 import useAuth from '../../Hooks/useAuth';
 
@@ -55,7 +55,27 @@ const Header = () => {
             {
               user.email ? (
                 <Nav className="d-flex align-items-center">
-                  <NavLink to="/login">
+                  {/* <NavLink to="/login">
+                    <button
+                      onClick={logOut}
+                      className="btn btn-danger rounded-pill text-white fw-bold"
+                    >
+                      Logout
+                    </button>
+                  </NavLink> */}
+                  <Navbar.Text className="text-center d-flex align-items-center">
+                    <Image style={{width:"40px"}} src={user.photoURL} roundedCircle />
+                    <br />
+                    <NavDropdown title={user.displayName} id="basic-nav-dropdown">
+               <NavDropdown.Item href="#action/3.1">
+                 <NavLink to="/profile" className="nav-link">
+              Profile
+            </NavLink>
+                </NavDropdown.Item>
+               <NavDropdown.Item href="#action/3.2"><NavLink to="/dashboard" className="nav-link">
+              Dashboard
+            </NavLink></NavDropdown.Item>
+               <NavDropdown.Item href="#action/3.3"><NavLink to="/login">
                     <button
                       onClick={logOut}
                       className="btn btn-danger rounded-pill text-white fw-bold"
@@ -63,10 +83,9 @@ const Header = () => {
                       Logout
                     </button>
                   </NavLink>
-                  <Navbar.Text className="text-center d-flex align-items-center">
-                    <Image style={{width:"40px"}} src={user.photoURL} roundedCircle />
-                    <br />
-                    <span className="fw-bold ps-2">{user.displayName}</span>
+                  </NavDropdown.Item>
+               
+              </NavDropdown>
                   </Navbar.Text>
                 </Nav>
               ) : (

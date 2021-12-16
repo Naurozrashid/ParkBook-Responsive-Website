@@ -10,6 +10,7 @@ import AuthProvider from './Context/AuthProvider';
 import Help from './component/Help/Help';
 import Contact from './component/Contact/Contact';
 import Footer from './component/Footer/Footer';
+import Profile from './Profie/Profile';
 
 
 
@@ -31,6 +32,9 @@ function App() {
           </Route> 
            <Route path="/register">
              <Register></Register>
+          </Route> 
+           <Route path="/profile">
+             <Profile></Profile>
           </Route> 
            <Route path="/help">
            <Help></Help>
