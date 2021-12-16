@@ -7,7 +7,7 @@ import './Login.css'
 import swal from 'sweetalert';
 
 const Login = () => {
-  const { signInUsingGoogle,user,handleEmailChange,handlePasswordChange,handleLogin,error} = useAuth();
+  const { signInUsingGoogle,user,handleEmailChange,handleFacebookSignIn,handlePasswordChange,handleLogin,error} = useAuth();
   const history = useHistory();
   const location = useLocation();
     const redirect_uri = location.state?.from || '/home';
@@ -31,7 +31,7 @@ const Login = () => {
               <button onClick={handleGoogleLogin} className="border-0 bg-white">
                 <i className="fab fa-google-plus-g p-3 text-danger"></i>
               </button>
-              <button className="border-0 bg-white">
+              <button onClick={handleFacebookSignIn} className="border-0 bg-white">
                 <i className="fab fa-facebook-square p-3 text-primary"></i>
               </button>
               <button className="border-0 bg-white">

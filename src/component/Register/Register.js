@@ -7,7 +7,7 @@ import useAuth from '../../Hooks/useAuth';
 import swal from 'sweetalert';
 
 const Register = () => {
-    const { signInUsingGoogle,handleNameChange,handleEmailChange,handlePasswordChange,handleRegistration,error,logOut} = useAuth();
+    const { signInUsingGoogle,handleFacebookSignIn,handleNameChange,handleEmailChange,handlePasswordChange,handleRegistration,error,logOut} = useAuth();
   const history = useHistory();
 
 
@@ -40,7 +40,7 @@ const Register = () => {
                 <button onClick={handleGoogleLogin}  className="border-0 bg-white">
                   <i className="fab fa-google-plus-g p-3 text-danger"></i>
                 </button>
-                <button className="border-0 bg-white">
+                <button onClick={handleFacebookSignIn} className="border-0 bg-white">
                   <i className="fab fa-facebook-square p-3 text-primary"></i>
                 </button>
                 <button className="border-0 bg-white">

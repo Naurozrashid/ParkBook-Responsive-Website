@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory ,useLocation } from 'react-router-dom';
-import { getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut,createUserWithEmailAndPassword,updateProfile,sendEmailVerification,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,FacebookAuthProvider , onAuthStateChanged, signOut,createUserWithEmailAndPassword,updateProfile,sendEmailVerification,signInWithEmailAndPassword } from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebase.init';
 import swal from 'sweetalert';
 
@@ -18,10 +18,24 @@ const useFirebase = () => {
     const [loading, setLoading] = useState(true)
     const auth = getAuth();
     const googleProvider = new GoogleAuthProvider();
+    const facebookProvider = new FacebookAuthProvider();
 
     const signInUsingGoogle = () => {
         return signInWithPopup(auth, googleProvider)
             .finally(() => { setLoading(false) });
+    }
+
+    const handleFacebookSignIn = ()=>{
+      signInWithPopup(auth, facebookProvider)
+  .then((result) => {
+    const user = result.user;
+             swal("Login", "Successful", "success");
+          history.push(redirect_uri);
+  }) 
+  .catch(error => {
+        console.log(error.message);
+         swal("Login", "Error", "Error");
+      })
     }
 
     const handleNameChange = e => {
@@ -125,6 +139,8 @@ const useFirebase = () => {
         handlePasswordChange,
         handleRegistration,
         handleLogin,
+        handleFacebookSignIn,
+        
         error,
         logOut
     }

@@ -4,6 +4,7 @@ import banner from '../../images/Home/static-city-green.png'
 import google from '../../images/Home/android_badge_EN.png'
 import apple from '../../images/Home/ios_badge_EN.png'
 import download from '../../images/Home/app-screenshots.png'
+import { Link } from 'react-router-dom';
 
 const Home = () => {
     return (
@@ -42,7 +43,10 @@ const Home = () => {
                 <label className="text-center ps-5" for="floatingInputInvalid">ARRIVAL</label>
                 </div> */}
                 <div className="py-3 ms-2 ">
-                <button type="button" class="btn brdr font-color5 px-5 py-2">SEARCH</button>
+                    <Link to="/login" className="nav-link">
+              <button type="button" class="btn brdr font-color5 px-5 py-2">SEARCH</button>
+            </Link>
+                
                 </div>
 
                  </div>
