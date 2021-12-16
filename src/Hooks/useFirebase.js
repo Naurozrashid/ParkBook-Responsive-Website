@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory ,useLocation } from 'react-router-dom';
-import { getAuth, signInWithPopup, GoogleAuthProvider,FacebookAuthProvider , onAuthStateChanged, signOut,createUserWithEmailAndPassword,updateProfile,sendEmailVerification,signInWithEmailAndPassword } from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,FacebookAuthProvider , onAuthStateChanged, signOut,createUserWithEmailAndPassword,updateProfile,sendEmailVerification,signInWithEmailAndPassword ,updateEmail,updatePassword} from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebase.init';
 import swal from 'sweetalert';
 
@@ -13,6 +13,7 @@ const useFirebase = () => {
     const [name, setName] = useState('');
     const [user, setUser] = useState({});
     const [email, setEmail] = useState('');
+    const [photo, setPhoto] = useState('');
     const [password, setPassword] = useState('');
      const [error, setError] = useState('');
     const [loading, setLoading] = useState(true)
@@ -44,6 +45,11 @@ const useFirebase = () => {
       }
       const handleEmailChange = e => {
         setEmail(e.target.value);
+      }
+    
+      const handlePhotoChange = e => {
+        setPhoto(e.target.value);
+        console.log(photo)
       }
     
       const handlePasswordChange = e => {
@@ -107,6 +113,7 @@ const useFirebase = () => {
         })
       }
 
+
     const logOut = () => {
         setLoading(true);
         signOut(auth)
@@ -115,6 +122,43 @@ const useFirebase = () => {
             })
             .finally(() => setLoading(false))
     }
+
+
+    // update user profile
+    const handleUserProfile = e => {
+      console.log(photo);
+      if(name)
+      {
+         updateProfile(auth.currentUser, { displayName: name })
+          .then(result => { })
+      }
+     
+      if(photo)
+      {
+        console.log(photo);
+         updateProfile(auth.currentUser, { photoURL: photo })
+          .then(result => { 
+            console.log("done");
+          })
+      }
+      if(email)
+      {
+         updateEmail(auth.currentUser,  email)
+          .then(result => { })
+      }
+      if(password)
+      {
+         updatePassword(user, password).then(() => {
+  console.log(password);
+  swal("Login", "Successful", "success");
+}).catch((error) => {
+  console.log(error);
+  
+});
+      }
+     
+    }
+
 
     // observe whether user auth state changed or not
     useEffect(() => {
@@ -128,7 +172,7 @@ const useFirebase = () => {
             setLoading(false);
         });
         return () => unsubscribe;
-    },[])
+    },[user])
 
     return {
         user,
@@ -140,6 +184,8 @@ const useFirebase = () => {
         handleRegistration,
         handleLogin,
         handleFacebookSignIn,
+        handleUserProfile,
+        handlePhotoChange,
         
         error,
         logOut
