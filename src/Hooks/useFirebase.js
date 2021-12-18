@@ -148,13 +148,19 @@ const useFirebase = () => {
       }
       if(password)
       {
+         if (!/(?=.*[A-Z].*[A-Z])/.test(password)) {
+          setError('Password Must contain 2 upper case');
+          return;
+        }
          updatePassword(user, password).then(() => {
-  console.log(password);
-  swal("Login", "Successful", "success");
-}).catch((error) => {
-  console.log(error);
+            logOut();
+         history.push('./login')
+         swal("PassWord", "Changed", "success");
+        
+        }).catch((error) => {
+       console.log(error);
   
-});
+        });
       }
      
     }
@@ -172,7 +178,7 @@ const useFirebase = () => {
             setLoading(false);
         });
         return () => unsubscribe;
-    },[user])
+    },[])
 
     return {
         user,
@@ -186,8 +192,7 @@ const useFirebase = () => {
         handleFacebookSignIn,
         handleUserProfile,
         handlePhotoChange,
-        
-        error,
+         error,
         logOut
     }
 }

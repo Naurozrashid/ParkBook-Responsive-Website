@@ -10,7 +10,7 @@ const Profile = () => {
       <div className="row">
         <div className="col-lg-7 long-padding">
           <div className="text-center">
-            <h1 className=" text-bold mb-4">Your Profile</h1>
+            <h1 className=" text-bold mb-4">Update Your Profile</h1>
             
           </div>
 
@@ -38,7 +38,7 @@ const Profile = () => {
                 <Form.Control
                   onBlur={handlePasswordChange}
                   type="password"
-                  placeholder="Change Your Password"
+                  placeholder="Password"
                   
                 />
               </Form.Group>
