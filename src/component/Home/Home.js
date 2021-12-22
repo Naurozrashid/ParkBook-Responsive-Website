@@ -11,7 +11,7 @@ const Home = () => {
         <>
             <div className="text-center">
                 <h1 className="intro-color">Park before arriving</h1>
-                <h4 className="intro-color-2">More than 1,000,000 drivers have now booked with Parclick</h4>
+                <h4 className="intro-color-2">More than 1,000,000 drivers have now booked with Parkzoon</h4>
 
                  {/* input section */}
                  <section className="sub-header mt-5 container rounded rounded-5">

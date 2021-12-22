@@ -44,21 +44,21 @@ const Footer = () => {
           </h6>
           <div className="mt-3 fw-bold fs-3 icon-color d-flex">
             <a
-              href="https://www.facebook.com/nayem.islam.16752"
+              href="https://www.facebook.com/nauroz.rashid.9"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="fab fa-facebook-square "></i>
             </a>
             <a
-              href="https://twitter.com/?lang=en"
+              href="https://twitter.com/naurozrashid11"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i className="fab fa-twitter "></i>
             </a>
             <a
-              href="https://www.linkedin.com/in/md-nayem-hossain-937052193/"
+              href="https://www.linkedin.com/in/nauroz-rashid-5a873b172/"
               target="_blank"
               rel="noopener noreferrer"
             >

@@ -2,8 +2,20 @@ import React from 'react';
 import img2 from '../../images/Home/phone.svg'
 import img1 from '../../images/Home/chat.svg'
 import './Contact.css'
+import emailjs from 'emailjs-com'
 
 const Contact = () => {
+    function sendEmail(e){
+    e.preventDefault();
+ 
+    emailjs.sendForm('service_vepc61l', 'template_jpqt1dk', e.target, 'user_C0IncJjmkwKSZFcyCYOLA')
+      .then((result) => {
+          console.log(result.text);
+      }, (error) => {
+          console.log(error.text);
+      });
+      e.target.reset()
+  }
     return (
         <div>
              <h1 className="intro-color text-center">Contact</h1>
@@ -53,25 +65,25 @@ const Contact = () => {
                       <div className="container signin my-3" style={{ height: '31rem', width: '24rem' }}>
                 <h4 className="text-center pt-3">Send message</h4>
                 <p className="text-center mb-3"> We will contact you within 2 hours</p>
-                <form className="row g-3">
+                <form onSubmit={sendEmail} className="row g-3">
                     <div className="col-md-6">
                         <label for="inputName4" className="form-label">Name</label>
-                        <input type="text" className="form-control" id="inputNamel4" />
+                        <input type="text" className="form-control" id="inputNamel4" name="name" />
                     </div>
                     <div className="col-md-6">
                         <label for="inputEmail4" className="form-label">Email</label>
-                        <input type="email" className="form-control" id="inputEmail4" />
+                        <input type="email" className="form-control" id="inputEmail4" name="email"  />
                     </div>
                     <div className="col-md-12">
                         <label for="inputName4" className="form-label">Phone</label>
-                        <input type="text" className="form-control" id="inputNamel4" />
+                        <input type="text" className="form-control" id="inputNamel4" name="phone" />
                     </div>
                     
                    
                     <div className="col-md-12">
                        <div class="mb-3">
                         <label for="exampleFormControlTextarea1" class="form-label">Message</label>
-                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                        <textarea class="form-control" id="exampleFormControlTextarea1" name="message" rows="3"></textarea>
                        </div>
                     </div>
                     
