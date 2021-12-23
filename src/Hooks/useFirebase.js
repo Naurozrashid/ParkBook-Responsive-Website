@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useHistory ,useLocation } from 'react-router-dom';
-import { getAuth, signInWithPopup, GoogleAuthProvider,FacebookAuthProvider , onAuthStateChanged, signOut,createUserWithEmailAndPassword,updateProfile,sendEmailVerification,signInWithEmailAndPassword ,updateEmail,updatePassword} from "firebase/auth";
+import { getAuth, signInWithPopup, GoogleAuthProvider,FacebookAuthProvider , onAuthStateChanged, signOut,createUserWithEmailAndPassword,updateProfile,sendEmailVerification,signInWithEmailAndPassword ,updateEmail,updatePassword,sendPasswordResetEmail} from "firebase/auth";
 import initializeAuthentication from '../Firebase/firebase.init';
 import swal from 'sweetalert';
 
@@ -164,6 +164,15 @@ const useFirebase = () => {
       }
      
     }
+    // change password
+     const handleResetPassword = () => {
+       console.log('done'); 
+    sendPasswordResetEmail(auth, email)
+      .then(result => {
+        console.log('done'); 
+        swal("Successfully", "Mail sent to your email", "success");
+      })
+  }
 
 
     // observe whether user auth state changed or not
@@ -183,6 +192,7 @@ const useFirebase = () => {
     return {
         user,
         loading,
+        setError,
         signInUsingGoogle,
         handleNameChange,
         handleEmailChange,
@@ -192,6 +202,7 @@ const useFirebase = () => {
         handleFacebookSignIn,
         handleUserProfile,
         handlePhotoChange,
+        handleResetPassword,
          error,
         logOut
     }

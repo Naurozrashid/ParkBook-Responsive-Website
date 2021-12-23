@@ -1,6 +1,6 @@
 import React from 'react';
 import { Button, Form } from 'react-bootstrap';
-import useAuth from '../../src/Hooks/useAuth';
+import useAuth from '../../Hooks/useAuth';
 import swal from 'sweetalert';
 
 const Profile = () => {

@@ -7,7 +7,7 @@ import useAuth from '../../Hooks/useAuth';
 import swal from 'sweetalert';
 
 const Register = () => {
-    const { signInUsingGoogle,handleFacebookSignIn,handleNameChange,handleEmailChange,handlePasswordChange,handleRegistration,error,logOut} = useAuth();
+    const { signInUsingGoogle,handleFacebookSignIn,handleNameChange,handleEmailChange,handlePasswordChange,handleRegistration,error,logOut,setError} = useAuth();
   const history = useHistory();
 
 
@@ -19,7 +19,7 @@ const Register = () => {
             swal("Successfully", "Registered", "success");
           history.push('./login')
           
-        })
+        }).catch(err => setError(err.message))
 }
     return (
         <div className="container border-shadow mt-5">

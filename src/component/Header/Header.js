@@ -34,7 +34,7 @@ const Header = () => {
             <NavLink to="/home" className="nav-link">
               Home
             </NavLink>
-            <NavLink to="/home" className="nav-link">
+            <NavLink to="/MyOrders" className="nav-link">
               My Order
             </NavLink>
 
@@ -47,9 +47,9 @@ const Header = () => {
             <NavLink to="/contact" className="nav-link">
               Contact
             </NavLink>
-            <NavLink to="/about" className="nav-link">
+            {/* <NavLink to="/about" className="nav-link">
               About us
-            </NavLink>
+            </NavLink> */}
           </Nav>
           <Nav>
             {
@@ -72,9 +72,9 @@ const Header = () => {
               Profile
             </NavLink>
                 </NavDropdown.Item>
-               <NavDropdown.Item href="#action/3.2"><NavLink to="/dashboard" className="nav-link">
+               {/* <NavDropdown.Item href="#action/3.2"><NavLink to="/dashboard" className="nav-link">
               Dashboard
-            </NavLink></NavDropdown.Item>
+            </NavLink></NavDropdown.Item> */}
                <NavDropdown.Item href="#action/3.3"><NavLink to="/login">
                     <button
                       onClick={logOut}

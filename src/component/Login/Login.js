@@ -7,7 +7,7 @@ import './Login.css'
 import swal from 'sweetalert';
 
 const Login = () => {
-  const { signInUsingGoogle,user,handleEmailChange,handleFacebookSignIn,handlePasswordChange,handleLogin,error} = useAuth();
+  const { signInUsingGoogle,user,handleEmailChange,handleFacebookSignIn,handlePasswordChange,handleLogin,error,handleResetPassword,setError} = useAuth();
   const history = useHistory();
   const location = useLocation();
     const redirect_uri = location.state?.from || '/home';
@@ -19,7 +19,7 @@ const Login = () => {
         .then(result => {
           swal("Login", "Successful", "success");
           history.push(redirect_uri)
-        })
+        }).catch(err => setError(err.message))
 }
     return (
         <div className="container border-shadow mt-5">
@@ -70,7 +70,14 @@ const Login = () => {
               Login
             </Button>
             <p className="text-center pt-3 m-0">
-              dont have an account? <Link to="/register">Register Now</Link>
+              Dont have an account? <Link to="/register">Register Now</Link>
+            </p>
+            <p className="text-center pt-3 m-0">
+              Forget Password? <Link to="/login"><br/>
+                <Button onClick={handleResetPassword} className="btn btn-danger px-5 py-2" >
+              Change password
+            </Button>
+              </Link>
             </p>
           </Form>
         </div>
