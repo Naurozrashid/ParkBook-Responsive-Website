@@ -17,7 +17,7 @@ const CreateOrderPage = () => {
             .then((value) => {
                 if (value) {
 
-                    fetch('http://localhost:5000/allSlots/makeUnavailable', {
+                    fetch('https://parkbook-server-side.onrender.com/allSlots/makeUnavailable', {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
@@ -40,7 +40,7 @@ const CreateOrderPage = () => {
 
 
 
-                    axios.post('http://localhost:5000/addorder', data)
+                    axios.post('https://parkbook-server-side.onrender.com/addorder', data)
                         .then(res => {
                             if (res.data.insertedId) {
                                 swal({
@@ -56,34 +56,34 @@ const CreateOrderPage = () => {
                         });
                 }
             });
-          
-           
-    handlePayment();
 
-}
 
-  const handlePayment =()=>{
+        handlePayment();
+
+    }
+
+    const handlePayment = () => {
         const info = {
             product_name: ParkingZone,
             product_category: ParkingNumber,
             total_amount: totalCost,
             cus_name: user?.displayName,
-            cus_email:user?.email
-            
+            cus_email: user?.email
+
         }
-        fetch(`http://localhost:5000/init`,{
+        fetch(`https://parkbook-server-side.onrender.com/init`, {
             method: 'POST',
-            headers:{
-                "content-type" :"application/json"
+            headers: {
+                "content-type": "application/json"
             },
             body: JSON.stringify(info)
         })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-            window.location.replace(data)
-        })
-        
+            .then(res => res.json())
+            .then(data => {
+                console.log(data);
+                window.location.replace(data)
+            })
+
     }
     return (
         <div>
@@ -101,7 +101,7 @@ const CreateOrderPage = () => {
                     <input type="text" className="form-control m-2" placeholder="Enter Your Full Name" {...register("Fullname", { required: true })} />
                     <input type="text" className="form-control m-2" placeholder="Enter Phone Number" {...register("Mobile", { required: true })} />
                     <input readOnly className="form-control m-2" value={user.email || ' '}  {...register("userEmail", { required: true })} />
-                    <input  value="Order Now" className="btn fw-bold btn-success mt-3" type="submit" />
+                    <input value="Order Now" className="btn fw-bold btn-success mt-3" type="submit" />
                 </form>
             </div>
 

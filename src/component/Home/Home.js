@@ -22,7 +22,7 @@ const Home = () => {
 
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allSlots/${arrdate}/${parkZone}`)
+        fetch(`https://parkbook-server-side.onrender.com/allSlots/${arrdate}/${parkZone}`)
             .then(res => res.json())
             .then(data => setSlots(data));
     }, [arrdate, parkZone]);
@@ -73,12 +73,12 @@ const Home = () => {
                                     {/* <input type="date" class="form-control py-3 pt-4 padding-date border-info-home" pl
                                         aceholder="Where do you want to park?" aria-label="Username" aria-describedby="basic-addon1" /> */}
                                     <div class="form-control py-3 pt-4 padding-date border-info-home">
-                                  <Datetime
-                                    
-                                        onChange={handleArrdate}
-                                    />
+                                        <Datetime
+
+                                            onChange={handleArrdate}
+                                        />
                                     </div>
-                                    
+
 
                                 </div>
                                 <label className="text-center  ps-5" for="floatingInputInvalid">ARRIVAL</label>
@@ -90,13 +90,13 @@ const Home = () => {
                                     {/* <input type="date" class="form-control py-3 pt-4 padding-date border-info-home" pl
                   aceholder="Where do you want to park?" aria-label="Username" aria-describedby="basic-addon1"/> */}
                                     <div class="form-control py-3 pt-4 padding-date border-info-home">
-                                  <Datetime
-                                    
-                                        onChange={handleDepdate}
-                                    />
+                                        <Datetime
+
+                                            onChange={handleDepdate}
+                                        />
 
                                     </div>
-                                    
+
 
                                 </div>
                                 <label className="text-center ps-5" for="floatingInputInvalid">DEPARTURE</label>

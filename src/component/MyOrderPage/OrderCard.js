@@ -3,13 +3,13 @@ import swal from 'sweetalert';
 
 
 const OrderCard = (props) => {
-    const { _id, ParkingZone, ParkingNumber, totalCost, ArrTime, DepTime, slotID,Payment } = props.myOrder;
+    const { _id, ParkingZone, ParkingNumber, totalCost, ArrTime, DepTime, slotID, Payment } = props.myOrder;
     const [ord, setord] = useState([]);
     let atime = new Date(parseFloat(ArrTime));
     let dtime = new Date(parseFloat(DepTime));
 
     const handleDeleteOrder = id => {
-        const url = `http://localhost:5000/allorders/${id}`;
+        const url = `https://parkbook-server-side.onrender.com/allorders/${id}`;
 
         swal("Are you sure you want Cancel this Order?", {
             buttons: ["No", "Yes"],
@@ -18,7 +18,7 @@ const OrderCard = (props) => {
                 if (value) {
 
 
-                    fetch('http://localhost:5000/allSlots/makeAvailable', {
+                    fetch('https://parkbook-server-side.onrender.com/allSlots/makeAvailable', {
                         method: 'PUT',
                         headers: {
                             'content-type': 'application/json'
